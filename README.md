@@ -36,6 +36,37 @@ This system reduces paperwork, improves accessibility, and enhances overall hosp
 - SQLite
 
 ---
+## 📷 Screenshots
+
+### 🏠 Home Page
+![Home Page](screenshots/home.png)
+### Our services
+![Ourservices](screenshots/ourservices.png)
+### 🔐 Login Page
+![Login Page](screenshots/login.png)
+### registration page
+![Registration](screenshots/registration.png)
+### 📋admin Dashboard
+![Admin_Dashboard](screenshots/admin_home.png)
+
+### 📋doctor Dashboard
+![Doctor_Dashboard](screenshots/doctor_home.png)
+### 📋staff Dashboard
+![Staff_Dashboard](screenshots/staff_home.png)
+### 📋patient Dashboard
+![Patient_Dashboard](screenshots/patient_home.png)
+### user profile
+![User_profile](screenshots/user_profile.png)
+### Test_report page
+![Test_report Page](screenshots/test_report.png)
+### Backend_view page
+![Backend_view Page](screenshots/backend.png)
+### Recent_registrations page
+![Recent registrations  Page](screenshots/recent_regid.png)
+### 🔐Total user data page
+![Total user data Page](screenshots/regi_data.png)
+
+
 
 
 

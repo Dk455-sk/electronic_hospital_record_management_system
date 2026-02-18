@@ -39,7 +39,7 @@ This system reduces paperwork, improves accessibility, and enhances overall hosp
 ## 📷 Screenshots
 
 ### 🏠 Home Page
-<img src="screenshots/home.png" width="800">
+![Home page](screenshots/home_page.png)
 ### Our services
 ![Ourservices](screenshots/ourservices.png)
 ### 🔐 Login Page

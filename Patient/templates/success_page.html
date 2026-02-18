@@ -1,0 +1,148 @@
+<!-- <h1>you are successfully  Book your Appointment</h1>
+<a href="{% url 'phome' %}">go to home page.</a> -->
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Appointment Confirmed</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Roboto', sans-serif;
+            background: #7598bb;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        .confirmation-box {
+            background: rgb(236, 241, 237);
+            padding: 40px 60px;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .confirmation-box h1 {
+            color: #17d721;
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+
+        .confirmation-box p {
+            font-size: 16px;
+            color: #555;
+            margin-bottom: 30px;
+        }
+
+        .home-button {
+            display: inline-block;
+            background-color: #2e7d32;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.3s ease;
+        }
+
+        .home-button:hover {
+            background-color: #1b5e20;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="confirmation-box">
+        <h1>🎉 Appointment Booked Successfully!</h1>
+        <p>Your appointment has been confirmed. We look forward to seeing you!</p>
+        <a href="{% url 'phome' %}" class="home-button">Go to Home Page</a>
+    </div>
+
+</body>
+</html> -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Appointment Confirmed</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+
+    <style>
+        body {
+            background: linear-gradient(135deg, #cbd4c7, #c6eae7); /* soft green-teal gradient */
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        .confirmation-card {
+            background-color: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            max-width: 500px;
+            width: 100%;
+        }
+
+        .confirmation-card i {
+            font-size: 4rem;
+            color: #28a745;
+        }
+
+        .confirmation-card h2 {
+            font-weight: 600;
+            margin-top: 20px;
+            margin-bottom: 15px;
+            color: #2e7d32;
+        }
+
+        .confirmation-card p {
+            color: #555;
+            margin-bottom: 30px;
+        }
+
+        .btn-custom {
+            background-color: #28a745;
+            color: white;
+            padding: 10px 24px;
+            font-size: 16px;
+            border-radius: 8px;
+            transition: background-color 0.3s ease;
+            text-decoration: none;
+        }
+
+        .btn-custom:hover {
+            background-color: #218838;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="confirmation-card">
+        <i class="bi bi-check-circle-fill"></i>
+        <h2>Appointment Booked Successfully!</h2>
+        <p>Your appointment has been confirmed. Thank you for booking with us.</p>
+        <a href="{% url 'phome' %}" class="btn btn-custom">Go to Home Page</a>
+    </div>
+
+    <!-- Bootstrap JS (optional) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+
+

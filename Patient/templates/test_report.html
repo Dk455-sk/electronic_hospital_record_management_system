@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Test Report</title>
+    <!-- Bootstrap 5 CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        body {
+            background: linear-gradient(to right, #e0f7fa, #e0f2f1);
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        .report-box {
+            max-width: 750px;
+            margin: 60px auto;
+            background: #ffffff;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+        }
+
+        .report-box h2 {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 30px;
+            border-bottom: 2px solid #dee2e6;
+            padding-bottom: 15px;
+            color: #00796b;
+        }
+
+        .report-box ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .report-box li {
+            font-size: 18px;
+            padding: 12px 0;
+            border-bottom: 1px solid #f1f1f1;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .total {
+            font-size: 22px;
+            font-weight: 700;
+            margin-top: 30px;
+            color: #004d40;
+            text-align: right;
+        }
+
+        .report-footer {
+            font-size: 14px;
+            color: #6c757d;
+            margin-top: 25px;
+            text-align: right;
+        }
+
+        .pay-btn {
+            margin-top: 35px;
+            display: block;
+            width: 100%;
+            padding: 14px;
+            font-size: 18px;
+            font-weight: 600;
+            border-radius: 8px;
+            background-color: #00796b;
+            color: white;
+            border: none;
+            transition: background-color 0.3s ease;
+            text-align: center;
+            text-decoration: none;
+        }
+
+        .pay-btn:hover {
+            background-color: #004d40;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+<div class="report-box">
+    <h2>Test Report for {{ report.patient.Name }}</h2>
+
+    <ul>
+        {% for test in tests %}
+        <li>
+            <span>{{ test.test_name }}</span>
+            <span>₹{{ test.test_price }}</span>
+        </li>
+        {% endfor %}
+    </ul>
+
+    <div class="total">Total: ₹{{ total_price }}</div>
+
+    <div class="report-footer">
+        Report ID: {{ report.report_id }} | Date: {{ report.created_at }}
+    </div>
+
+    <!-- Pay Button -->
+     <a href="#" class="pay-btn">Pay Now</a>
+</div>
+
+<!-- Bootstrap JS (optional) -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

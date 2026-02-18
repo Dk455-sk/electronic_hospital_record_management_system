@@ -1,0 +1,147 @@
+{% extends "dlayout/base.html"%}
+{% block doctorblock%}
+<!-- <h3>Name: {{ pdata.p_name }}</h3>
+<h3>Gender: {{ pdata.p_gender }}</h3>
+<h3>Address: {{ pdata.p_address }}</h3>
+<h3>Contact: {{ pdata.p_mobile }}</h3>
+<h3>Diseases: {{ pdata.p_disease }}</h3>
+
+<hr>
+
+<form method="post">
+    {% csrf_token %}
+    <input type="hidden" name="pid" value="{{ pdata.id }}">
+
+    Prescription:
+    <textarea name="prescription"></textarea>
+
+    <input type="submit" value="Submit" name="btn">
+</form> -->
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<style>
+  body {
+    background: linear-gradient(135deg, #74ebd5 0%, #ACB6E5 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+
+  .card-custom {
+    background: #ffffffcc; /* semi-transparent white */
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    max-width: 500px;
+    width: 100%;
+    padding: 2rem;
+  }
+
+  .info-label {
+    display: inline-block;
+    font-weight: 700;
+    padding: 0.25rem 0.8rem;
+    border-radius: 50px;
+    background: #0d6efd; /* Bootstrap primary */
+    color: white;
+    margin-right: 12px;
+    font-size: 0.9rem;
+    min-width: 100px;
+    text-align: center;
+  }
+
+  .info-text {
+    font-size: 1.1rem;
+    color: #333;
+    vertical-align: middle;
+  }
+
+  .info-row {
+    margin-bottom: 1.25rem;
+    display: flex;
+    align-items: center;
+  }
+
+  h2 {
+    font-weight: 800;
+    color: #0d6efd;
+    margin-bottom: 2rem;
+    text-align: center;
+  }
+
+  textarea.form-control {
+    border-radius: 10px;
+  }
+
+  button.btn-primary {
+    border-radius: 50px;
+    padding: 0.6rem 2rem;
+    font-weight: 600;
+  }
+</style>
+
+<div class="card-custom">
+  <h2>Patient Details</h2>
+
+  <div class="info-row">
+    <div class="info-label">Name</div>
+    <div class="info-text">{{ pdata.p_name }}</div>
+  </div>
+  <div class="info-row">
+    <div class="info-label">Gender</div>
+    <div class="info-text">{{ pdata.p_gender }}</div>
+  </div>
+  <div class="info-row">
+    <div class="info-label">Address</div>
+    <div class="info-text">{{ pdata.p_address }}</div>
+  </div>
+  <div class="info-row">
+    <div class="info-label">Contact</div>
+    <div class="info-text">{{ pdata.p_mobile }}</div>
+  </div>
+  <div class="info-row">
+    <div class="info-label">Diseases</div>
+    <div class="info-text">{{ pdata.p_disease }}</div>
+  </div>
+
+  <hr>
+
+  <form method="post" class="needs-validation" novalidate>
+    {% csrf_token %}
+    <input type="hidden" name="pid" value="{{ pdata.id }}">
+
+    <div class="mb-4">
+      <label for="prescription" class="form-label fw-semibold">Prescription</label>
+      <textarea id="prescription" name="prescription" class="form-control" rows="5" placeholder="Write prescription here..." required></textarea>
+      <div class="invalid-feedback">
+        Please enter a prescription.
+      </div>
+    </div>
+
+    <div class="text-center">
+      <button type="submit" name="btn" class="btn btn-primary btn-lg">Submit</button>
+    </div>
+  </form>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+(() => {
+  'use strict'
+  const forms = document.querySelectorAll('.needs-validation')
+
+  Array.from(forms).forEach(form => {
+    form.addEventListener('submit', event => {
+      if (!form.checkValidity()) {
+        event.preventDefault()
+        event.stopPropagation()
+      }
+      form.classList.add('was-validated')
+    }, false)
+  })
+})();
+</script>
+{%endblock%}

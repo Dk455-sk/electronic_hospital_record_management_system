@@ -1,0 +1,43 @@
+{% extends "alayout/base.html" %}
+{% block adminblock %}
+{% load static %}
+
+<div class="container mt-5">
+    <h2>Welcome Admin {{ Aname }}</h2>
+    <h4 class="mt-4">Recent Registrations</h4>
+
+    <table class="table table-bordered mt-3">
+        <thead class="table-dark">
+            <tr>
+                <th>Name</th>
+                <th>Role</th>
+                <th>Email</th>
+                <th>Mobile</th>
+                <th>Registered On</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for user in recent_users %}
+            <tr>
+                <td>{{ user.Name }}</td>
+                <td>{{ user.Role_name }}</td>
+                <td>{{ user.Email }}</td>
+                <td>{{ user.Mobile }}</td>
+                <td>{{ user.created_at|date:"d-m-Y H:i" }}</td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="5" class="text-center">No registrations found</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <div class="mt-4">
+        <p>Total Doctors: {{ total_doctors }}</p>
+        <p>Total Patients: {{ total_patients }}</p>
+        <p>Total Staff: {{ total_staff }}</p>
+    </div>
+</div>
+
+{% endblock %}

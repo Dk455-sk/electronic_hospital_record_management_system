@@ -1,0 +1,141 @@
+<!-- <h1>Edit page </h1>
+<form  method="post" action="{% url "update" %}">
+    {% csrf_token %}
+    Name <input type="text" name="name" value="{{user.Name}}"><br>
+    Email <input type="email" name="email" value="{{user.Email}}"><br>
+    Gender <input type="text" name="gender" value="{{user.Gender}}"><br>
+    Role_name <input type="text" name="role" value="{{user.Role_name}}"><br>
+    Mobile <input type="text" name="mob" value="{{user.Mobile}}"><br>
+    Dob <input type="date" name="dob" value="{{user.Dob |date:"y-m-d"}}"><br>
+    Status <input type="text" name="status" value="{{user.Status}}"><br>
+    <input type="submit" value="update" name="btn"><br>
+</form> -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Profile</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(to right, #a1c4fd, #c2e9fb);
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 60px auto;
+            background-color: #ffffff;
+            border-radius: 12px;
+            padding: 40px 30px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 30px;
+        }
+
+        label {
+            display: block;
+            font-weight: 600;
+            color: #555;
+            margin-bottom: 5px;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="date"] {
+            width: 100%;
+            padding: 10px 14px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            margin-bottom: 20px;
+            box-sizing: border-box;
+            font-size: 15px;
+            transition: 0.3s ease;
+        }
+
+        input[type="text"]:focus,
+        input[type="email"]:focus,
+        input[type="date"]:focus {
+            border-color: #4a90e2;
+            outline: none;
+            box-shadow: 0 0 5px rgba(74, 144, 226, 0.3);
+        }
+
+        input[type="submit"] {
+            width: 100%;
+            padding: 12px;
+            background-color: #4CAF50;
+            border: none;
+            border-radius: 6px;
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #388e3c;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>EDIT DATA</h1>
+    <form method="post" action="{% url 'update' %}">
+        {% csrf_token %}
+
+        <div class="form-group">
+            <label>Name</label>
+            <input type="text" name="name" value="{{ user.Name }}">
+        </div>
+
+        <div class="form-group">
+            <label>Email</label>
+            <input type="email" name="email" value="{{ user.Email }}">
+        </div>
+
+        <div class="form-group">
+            <label>Gender</label>
+            <input type="text" name="gender" value="{{ user.Gender }}">
+        </div>
+
+        <div class="form-group">
+            <label>Role Name</label>
+            <input type="text" name="role" value="{{ user.Role_name }}">
+        </div>
+
+        <div class="form-group">
+            <label>Mobile</label>
+            <input type="text" name="mob" value="{{ user.Mobile }}">
+        </div>
+
+        <div class="form-group">
+            <label>Date of Birth</label>
+            <input type="text" name="dob" value="{{ user.Dob|date:'Y-m-d' }}">
+        </div>
+
+        <div class="form-group">
+            <label>Status</label>
+            <input type="text" name="status" value="{{ user.Status }}">
+        </div>
+
+        <input type="submit" value="Update" name="btn">
+    </form>
+</div>
+
+</body>
+</html>

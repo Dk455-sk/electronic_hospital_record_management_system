@@ -1,0 +1,96 @@
+{% extends "dlayout/base.html"%}
+{% block doctorblock%}
+<!-- <table border="solid">
+    <tr>
+        <th>Reg_id</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Mobile</th>
+        <th>DOB</th>
+        <th>Gender</th>
+        <th>Address</th>
+        <th>Role Name</th>
+       
+    </tr>
+    {% for user in pdata %}
+    <tr>
+        <td>{{user.Reg_id}}</td>
+        <td>{{user.Name}}</td>
+        <td>{{user.Email}}</td>
+        <td>{{user.Mobile}}</td>
+        <td>{{user.Dob}}</td>
+        <td>{{user.Gender}}</td>
+        <td>{{user.Address}}</td>
+        <td>{{user.Role_name}}</td>
+        
+    </tr>
+    {% endfor %}
+</table> -->
+
+
+
+
+
+
+<style>
+    body{
+        padding-top: 100px;
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        
+    }
+    th, td {
+        border: 1px solid #ddd;
+        padding: 12px;
+        text-align: center;
+    }
+    th {
+        background-color: #4CAF50;
+        color: white;
+    }
+    tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+    tr:hover {
+        background-color: #ffeaa7;
+    }
+    td {
+        color: #2d3436;
+    }
+</style>
+<body>
+    
+
+<h2 style="text-align: center; color: #0984e3;">PATIENT INFORMATION</h2>
+
+<table>
+    <tr>
+        <th>Reg ID</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Mobile</th>
+        <th>DOB</th>
+        <th>Gender</th>
+        <th>Address</th>
+        <th>Role Name</th>
+        <!-- <th>disease</th> -->
+    </tr>
+    {% for user in pdata %}
+    <tr>
+        <td>{{ user.Reg_id }}</td>
+        <td>{{ user.Name }}</td>
+        <td>{{ user.Email }}</td>
+        <td>{{ user.Mobile }}</td>
+        <td>{{ user.Dob }}</td>
+        <td>{{ user.Gender }}</td>
+        <td>{{ user.Address }}</td>
+        <td>{{ user.Role_name }}</td>
+        <!-- <td>{{user.p_disease}}</td> -->
+    </tr>
+    {% endfor %}
+</table>
+</body>
+{% endblock %}

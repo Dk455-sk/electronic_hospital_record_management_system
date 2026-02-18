@@ -1,0 +1,133 @@
+{% extends "slayout/base.html"%}
+{% block staffblock%}
+{%load static%}
+
+  <style>
+    body {
+      background-color: #f8f9fa;
+      padding-top: 100px;
+    }
+    .dashboard-card {
+      transition: transform 0.2s;
+    }
+    .dashboard-card:hover {
+      transform: scale(1.03);
+    }
+    .navbar-brand img {
+      border: 2px solid white;
+      object-fit: cover;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <!-- <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <div class="container-fluid"> -->
+      <!-- Logo above Company Name -->
+      <!-- <a class="navbar-brand d-flex flex-column align-items-center" href="{% url 'home' %}">
+        <img src="{% static 'images/symbol.png' %}" alt="Logo" width="40" height="40" class="mb-1 rounded-circle">
+        <span class="fw-bold">MoHospital</span>
+      </a> -->
+
+      <!-- Mobile Toggler -->
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+              data-bs-target="#navbarNav" aria-controls="navbarNav"
+              aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <!-- Navbar Links -->
+      <!-- <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav"> -->
+          <!-- Dashboard Link -->
+          <!-- <li class="nav-item">
+            <a class="nav-link active" href="#">Dashboard</a>
+          </li> -->
+
+          <!-- Profile Dropdown -->
+          <!-- <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdown" role="button"
+               data-bs-toggle="dropdown" aria-expanded="false">
+              Profile
+            </a>
+            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+              <li><a class="dropdown-item" href="#">View Profile</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item text-danger" href="#">Logout</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav> -->
+
+  <!-- Welcome Section -->
+  <div class="container mt-4 text-center">
+    <h2>Welcome, {{Sname}}</h2>
+    <p class="text-muted">Staff Dashboard - Manage hospital operations</p>
+  </div>
+
+  <!-- Dashboard Cards -->
+  <div class="container mt-5">
+    <div class="row g-4">
+      <div class="col-md-4">
+        <div class="card dashboard-card shadow-sm text-center">
+          <div class="card-body">
+            <h5 class="card-title">Manage Appointments</h5>
+            <p class="card-text">Schedule and update appointments for patients.</p>
+            <a href="#" class="btn btn-primary">Appointments</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="card dashboard-card shadow-sm text-center">
+          <div class="card-body">
+            <h5 class="card-title">Patient/Doctor Records</h5>
+            <p class="card-text">Access and update patient medical records.</p>
+            <a href="{% url 'pdview' %}" class="btn btn-primary">Records</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="card dashboard-card shadow-sm text-center">
+          <div class="card-body">
+            <h5 class="card-title">Inventory</h5>
+            <p class="card-text">Track and manage hospital inventory and supplies.</p>
+            <a href="#" class="btn btn-primary">Check Inventory</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="card dashboard-card shadow-sm text-center">
+          <div class="card-body">
+            <h5 class="card-title">Billing</h5>
+            <p class="card-text">Generate and manage patient bills and payments.</p>
+            <a href="{% url 'billing' %}" class="btn btn-primary">Billing</a>
+             <a href="{% url 'bill_records' %}" class="btn btn-primary">Billing_Record</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="card dashboard-card shadow-sm text-center">
+          <div class="card-body">
+            <h5 class="card-title">Support Tickets</h5>
+            <p class="card-text">Handle internal queries and maintenance requests.</p>
+            <a href="#" class="btn btn-primary">Support</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
+
+{%endblock%}
+
+
+

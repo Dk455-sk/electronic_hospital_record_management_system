@@ -1,0 +1,14 @@
+<form method="post">
+    {% csrf_token %}
+    fno:<input type="text" name="fno">
+    <br/>
+    sno:<input type="text" name="sno">
+    <br/>
+    <input type="submit" name="btn" value="add">
+    <input type="submit" name="btn" value="sub">
+    <input type="submit" name="btn" value="mul">
+    <input type="submit" name="btn" value="div">
+</form>
+{% if output%}
+<h1>result is:{{output}} </h1>
+{% endif %}

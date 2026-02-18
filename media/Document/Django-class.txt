@@ -1,0 +1,87 @@
+Django:
+=================
+->It is based on MVT process:
+-------------------------------
+	M- Model  -> Database
+	V- Views  -> Logic
+	T- Template -> Design
+
+-> Why Django:
+------------------------------------
+Re-useability
+Pluggability
+
+-> What is Django:
+----------------------------------
+-> It is high label python programing web framework.
+
+-> Features:
+------------------------------
+Fast
+Secure
+Scalable
+Versatile
+
+===================================================
+Installation process / How to create python project on Django:
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  
+
+Step1: First install the current version of Django application. Then install it
+-------------------------------------------------------------------------------------
+	python -m pip install Django
+
+Step2: Then create folder in any location by using Cmd.
+---------------------------------------------------------------
+	mkdir folderName
+
+
+Step3: Then create a virtual env on that folder.
+----------------------------------------------------
+	python -m pip install virtualenv 
+
+Step4: Then create a scripts on that folder.
+---------------------------------------------------
+	virtualenv  envdemo
+ 
+then activate the scripts and deactivate
+
+Step5:  Then again install the Django.
+-----------------------------------------
+	python -m pip install django
+
+Step6: Then next to project Name.
+------------------------------------
+	Django -admin startproject projectName
+
+Step7: Then Run the server on cmd and put the location file on any browser.
+-------------------------------------------------------------------------------
+	python manage.py runserver
+
+Step8: Then open the folder in vs code.
+--------------------------------------------
+	code
+
+ Step9: Then create application as per requirement.
+------------------------------------------------------
+	python manage.py startapp appName
+
+
+
+
+base- {% include " layaout/header.html" %}
+	{%  block homelock %}
+
+	{% endblock %}
+	{% include "layout/footer.html" %}
+
+home- {% extends "layout/base.html" %}
+	{% block homeblock %}
+	{% endblock %}
+
+
+
+
+
+
+

@@ -1,0 +1,141 @@
+<!-- <form method="post">
+    {% csrf_token %}
+    <input type="text" name="pmobile" placeholder="enter your mobile no">
+    <input type="submit" name="btn" value="submit">
+
+
+</form>
+{% if msg %}
+<table border="solid">
+    <tr>
+        <th>Doctor Name</th>
+        <th>Diseases</th>
+        <th>ApplyDate</th>
+        <th>from_time  - to_time</th>
+        <th>Status</th>
+       
+    </tr>
+    {% for appointments in msg %}
+    <tr>
+        <td>{{appointments.doct_name}}</td>
+        <td>{{appointments.p_disease}}</td>
+        <td>{{appointments.todaydate}}</td>
+        <td>{{appointments.fromtime}}-{{appointments.totime}}</td>
+        <td>{{appointments.status}}</td>
+    </tr>
+    {% endfor %}
+</table>
+
+{% else %}
+<h2>No match found</h2>
+{% endif %} -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Appointment Status</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #e9f0f7; /* Soft light blue background */
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .form-box {
+            background-color: #ffffff;
+            padding: 25px 30px;
+            border: 1px solid #ced4da;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            width: 100%;
+        }
+
+        .table-section {
+            margin-top: 40px;
+        }
+
+        table {
+            background-color: #ffffff;
+        }
+
+        h2 {
+            margin-top: 20px;
+            color: #dc3545;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+<div>
+    <div class="form-box mx-auto">
+        <h4 class="text-center mb-4">Check Appointment</h4>
+        <form method="post">
+            {% csrf_token %}
+            <div class="mb-3">
+                <input type="text" class="form-control" name="pmobile" placeholder="Enter your mobile no" required>
+            </div>
+            <div class="d-grid">
+                <button type="submit" class="btn btn-primary" name="btn">Submit</button>
+            </div>
+        </form>
+    </div>
+
+    <div class="table-section mt-5">
+        {% if msg %}
+            <h5 class="text-center mb-3">Appointment Details</h5>
+            <div class="table-responsive">
+                <table class="table table-bordered table-striped">
+                    <thead class="table-dark">
+                    <tr>
+                        <th>Doctor Name</th>
+                        <th>Diseases</th>
+                        <th>Apply Date</th>
+                        <th>Time Slot</th>
+                        <th>Status</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for appointments in msg %}
+                        <tr>
+                            <td>{{ appointments.doct_name }}</td>
+                            <td>{{ appointments.p_disease }}</td>
+                            <td>{{ appointments.todaydate }}</td>
+                            <td>{{ appointments.fromtime }} - {{ appointments.totime }}</td>
+                            <td>
+                                {% if appointments.status == "Pending" %}
+                                    <span class="badge bg-warning text-dark">{{ appointments.status }}</span>
+                                {% elif appointments.status == "Approved" %}
+                                    <span class="badge bg-success">{{ appointments.status }}</span>
+                                {% elif appointments.status == "Rejected" %}
+                                    <span class="badge bg-danger">{{ appointments.status }}</span>
+                                {% else %}
+                                    {{ appointments.status }}
+                                {% endif %}
+                            </td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        {% else %}
+            <h2>No match found</h2>   
+        {% endif %}
+    </div>
+</div>
+
+<!-- Bootstrap JS (optional) -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
+
+

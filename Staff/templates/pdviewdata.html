@@ -1,0 +1,142 @@
+{% extends "slayout/base.html"%}
+{% block staffblock %}
+ <!-- <table border="solid">
+    <tr>
+        <th>Reg_id</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Mobile</th>
+        <th>DOB</th>
+        <th>Gender</th>
+        <th>Address</th>
+        <th>Role Name</th>
+       
+    </tr>
+    {% for user in pdata %}
+    <tr>
+        <td>{{user.Reg_id}}</td>
+        <td>{{user.Name}}</td>
+        <td>{{user.Email}}</td>
+        <td>{{user.Mobile}}</td>
+        <td>{{user.Dob}}</td>
+        <td>{{user.Gender}}</td>
+        <td>{{user.Address}}</td>
+        <td>{{user.Role_name}}</td>
+        
+    </tr>
+    {% endfor %}
+
+    {% for user in Ddata %}
+    <tr>
+        <td>{{user.Reg_id}}</td>
+        <td>{{user.Name}}</td>
+        <td>{{user.Email}}</td>
+        <td>{{user.Mobile}}</td>
+        <td>{{user.Dob}}</td>
+        <td>{{user.Gender}}</td>
+        <td>{{user.Address}}</td>
+        <td>{{user.Role_name}}</td>
+        
+    </tr>
+    {% endfor %}
+</table> -->
+
+
+<!-- Include Bootstrap 5 CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<style>
+    body{
+        padding-top: 90px;
+    }
+</style>
+
+
+<body>
+<div class="container my-5">
+    
+    <!-- Table for pdata -->
+    <div class="card shadow mb-5">
+        <div class="card-header bg-success text-white text-center">
+            <h4 class="mb-0">Doctor Data</h4>
+        </div>
+        <div class="table-responsive">
+            <table class="table table-striped table-hover table-bordered align-middle mb-0">
+                <thead class="table-dark">
+                    <tr>
+                        <th>Reg ID</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Mobile</th>
+                        <th>DOB</th>
+                        <th>Gender</th>
+                        <th>Address</th>
+                        <th>Role Name</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for user in Ddata %}
+                    <tr>
+                        <td>{{ user.Reg_id }}</td>
+                        <td>{{ user.Name }}</td>
+                        <td>{{ user.Email }}</td>
+                        <td>{{ user.Mobile }}</td>
+                        <td>{{ user.Dob }}</td>
+                        <td>{{ user.Gender }}</td>
+                        <td>{{ user.Address }}</td>
+                        <td>{{ user.Role_name }}</td>
+                    </tr>
+                    {% empty %}
+                    <tr>
+                        <td colspan="8" class="text-center text-muted">No patient data found.</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Table for Ddata -->
+    <div class="card shadow">
+        <div class="card-header bg-info text-white text-center">
+            <h4 class="mb-0">Patient Data</h4>
+        </div>
+        <div class="table-responsive">
+            <table class="table table-striped table-hover table-bordered align-middle mb-0">
+                <thead class="table-dark">
+                    <tr>
+                        <th>Reg ID</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Mobile</th>
+                        <th>DOB</th>
+                        <th>Gender</th>
+                        <th>Address</th>
+                        <th>Role Name</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for user in pdata %}
+                    <tr>
+                        <td>{{ user.Reg_id }}</td>
+                        <td>{{ user.Name }}</td>
+                        <td>{{ user.Email }}</td>
+                        <td>{{ user.Mobile }}</td>
+                        <td>{{ user.Dob }}</td>
+                        <td>{{ user.Gender }}</td>
+                        <td>{{ user.Address }}</td>
+                        <td>{{ user.Role_name }}</td>
+                    </tr>
+                    {% empty %}
+                    <tr>
+                        <td colspan="8" class="text-center text-muted">No doctor data found.</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</div>
+</body>
+{%endblock%}
+ 

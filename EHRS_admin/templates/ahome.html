@@ -1,0 +1,130 @@
+{% extends "alayout/base.html" %}
+{% block adminblock %}
+{% load static %}
+
+<style>
+  body {
+    padding-top: 100px;
+    background-color: #f8f9fa;
+  }
+  .card:hover {
+    transform: translateY(-5px);
+    transition: 0.3s;
+  }
+</style>
+
+<div class="container">
+
+  <!-- Welcome Section -->
+  <div class="row mb-4">
+    <div class="col">
+      <div class="p-4 bg-light rounded shadow-sm">
+        <h2 class="fw-bold">Welcome, {{ Aname }}</h2>
+        <p class="text-muted">Electronic Health Record Management - Admin Dashboard</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Dashboard Cards -->
+  <div class="row g-4">
+
+    <!-- Total Doctors -->
+    <div class="col-md-3">
+      <div class="card text-white bg-primary shadow">
+        <div class="card-body text-center">
+          <h5 class="card-title">Total Doctors</h5>
+          <h2>{{ total_doctors }}</h2>
+          <a href="{% url 'recent_registrations' %}?role=doctor" class="text-white text-decoration-none">View Details</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Total Patients -->
+    <div class="col-md-3">
+      <div class="card text-white bg-success shadow">
+        <div class="card-body text-center">
+          <h5 class="card-title">Total Patients</h5>
+          <h2>{{ total_patients }}</h2>
+          <a href="{% url 'recent_registrations' %}?role=patient" class="text-white text-decoration-none">View Details</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Total Staff -->
+    <div class="col-md-3">
+      <div class="card text-white bg-warning shadow">
+        <div class="card-body text-center">
+          <h5 class="card-title">Total Staff</h5>
+          <h2>{{ total_staff }}</h2>
+          <a href="{% url 'recent_registrations' %}?role=staff" class="text-white text-decoration-none">View Details</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Total Appointments -->
+    <div class="col-md-3">
+      <div class="card text-white bg-danger shadow">
+        <div class="card-body text-center">
+          <h5 class="card-title">Appointments Today</h5>
+          <h2>{{ total_appointments }}</h2>
+          <a href="#" class="text-white text-decoration-none">View Details</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Recent Activity Section -->
+  <div class="row mt-5">
+    <div class="col-md-8">
+      <div class="card shadow">
+        <div class="card-header bg-dark text-white">
+        </div>
+        <div class="card-body">
+          <table class="table table-bordered table-striped">
+            <thead class="table-secondary">
+              <tr>
+                <th>Name</th>
+                <th>Role</th>
+                <th>Email</th>
+                <th>Registered On</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for user in recent_users %}
+              <tr>
+                <td>{{ user.Name }}</td>
+                <td>{{ user.Role_name }}</td>
+                <td>{{ user.Email }}</td>
+                <td>{{ user.created_at|date:"d-m-Y H:i" }}</td>
+              </tr>
+              {% empty %}
+              <tr>
+                <td colspan="4" class="text-center">No registrations found</td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- Quick Actions -->
+    <div class="col-md-4">
+      <div class="card shadow">
+        <div class="card-header bg-primary text-white">
+          Quick Actions
+        </div>
+        <div class="card-body d-grid gap-3">
+          <a href="{% url 'signup' %}" class="btn btn-outline-primary">Add Doctor</a>
+          <a href="{% url 'signup' %}" class="btn btn-outline-success">Add Patient</a>
+          <a href="{% url 'signup' %}" class="btn btn-outline-warning">Manage Staff</a>
+          <a href="#" class="btn btn-outline-danger">Generate Reports</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+{% endblock %}

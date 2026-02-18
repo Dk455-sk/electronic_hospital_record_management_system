@@ -1,0 +1,170 @@
+<!-- <table border="solid">
+    <tr>
+        <th>Reg_id</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Mobile</th>
+        <th>DOB</th>
+        <th>Gender</th>
+        <th>Address</th>
+        <th>Role Name</th>
+        <th>Status</th>
+        <th>Action</th>
+    </tr>
+    {% for user in data %}
+    <form method="post">
+        {% csrf_token %}
+    <tr>
+        <td>{{user.Reg_id}}</td>
+        <td>{{user.Name}}</td>
+        <td>{{user.Email}}</td>
+        <td>{{user.Mobile}}</td>
+        <td>{{user.Dob}}</td>
+        <td>{{user.Gender}}</td>
+        <td>{{user.Address}}</td>
+        <td>{{user.Role_name}}</td>
+        <td>{{user.Status}}</td>
+        <td>
+        <input type="text" name="email" value="{{user.Email}}" hidden>
+        <input type="submit" value="Edit" name="btn">
+        <input type="submit" value="Delete" name="btn">
+        </td>
+    </tr>
+    </form>
+    {% endfor %}
+</table> -->
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>User Table</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f0f2f5;
+            padding: 40px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: #fff;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        th, td {
+            padding: 14px 20px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #4a90e2;
+            color: #fff;
+            font-weight: 600;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        tr:hover {
+            background-color: #f1f7ff;
+        }
+
+        td {
+            color: #333;
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 8px;
+        }
+
+        .action-buttons input[type="submit"] {
+            padding: 6px 12px;
+            border: none;
+            border-radius: 4px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background-color 0.2s ease-in-out;
+        }
+
+        .action-buttons input[type="submit"]:first-child {
+            background-color: #28a745;
+            color: white;
+        }
+
+        .action-buttons input[type="submit"]:first-child:hover {
+            background-color: #218838;
+        }
+
+        .action-buttons input[type="submit"]:last-child {
+            background-color: #dc3545;
+            color: white;
+        }
+
+        .action-buttons input[type="submit"]:last-child:hover {
+            background-color: #c82333;
+        }
+
+        /* Hide the hidden email input completely */
+        input[type="text"][hidden] {
+            display: none;
+        }
+
+    </style>
+</head>
+<body>
+
+    <h2 style="text-align:center; color:#333; margin-bottom: 20px;">USER MANAGEMENT</h2>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Reg ID</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Mobile</th>
+                <th>DOB</th>
+                <th>Gender</th>
+                <th>Address</th>
+                <th>Role</th>
+                <th>Status</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for user in data %}
+            <form method="post">
+                {% csrf_token %}
+                <tr>
+                    <td>{{ user.Reg_id }}</td>
+                    <td>{{ user.Name }}</td>
+                    <td>{{ user.Email }}</td>
+                    <td>{{ user.Mobile }}</td>
+                    <td>{{ user.Dob }}</td>
+                    <td>{{ user.Gender }}</td>
+                    <td>{{ user.Address }}</td>
+                    <td>{{ user.Role_name }}</td>
+                    <td>{{ user.Status }}</td>
+                    <td>
+                        <input type="text" name="email" value="{{ user.Email }}" hidden>
+                        <div class="action-buttons">
+                            <input type="submit" value="Edit" name="btn">
+                            <input type="submit" value="Delete" name="btn">
+                        </div>
+                    </td>
+                </tr>
+            </form>
+            {% endfor %}
+        </tbody>
+    </table>
+
+</body>
+</html>
+

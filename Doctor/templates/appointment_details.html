@@ -1,0 +1,167 @@
+{% extends "dlayout/base.html"%}
+{% block doctorblock%}
+<!-- 
+{% if appointment%}
+<table border="solid">
+    <tr>
+        <th>Patient name</th>
+        <th>Mobile</th>
+        <th>Gender</th>
+        <th>Dob</th>
+        <th>Address</th>
+        <th>Diseases</th>
+        <th>Apply date</th>
+        <th>status</th>
+        <th>Action</th>
+        
+    </tr>
+    {% for data in appointment %}
+    <tr>
+        <td>{{data.p_name}}</td>
+        <td>{{data.p_mobile}}</td>
+        <td>{{data.p_gender}}</td>
+        <td>{{data.dob}}</td>
+        <td>{{data.p_address}}</td>
+        <td>{{data.p_disease}}</td>
+        <td>{{data.todaydate}}</td>
+        <td>{{data.status}}</td>
+        <td>
+            {% if 'data.status=="pending"' %}
+            <form action="{% url 'approve_appointment'%}" method="POST" style="display: inline;">
+                {% csrf_token%}
+                <input type="hidden" name="appointment_id" value="{{data.id}}">
+                <button type="submit" class="btn-approve">Approve</button>
+            </form>
+
+             <form action="{% url 'cancel_appointment'%}" method="POST" style="display: inline;">
+                {% csrf_token%}
+                <input type="hidden" name="appointment_id" value="{{data.id}}">
+                <button type="submit" class="btn-approve">Cancle</button>
+            </form>
+            {% else %}
+            <form action="{% url 'cancel_appointment'%}" method="POST" style="display: inline;">
+                {% csrf_token%}
+                <input type="hidden" name="appointment_id" value="{{data.id}}">
+                <button type="submit" class="btn-approve">Cancle</button>
+            </form>
+            {% endif %}
+        </td>
+
+    </tr>
+    {% endfor %}
+</table>
+{% else %}
+<p>no appointments found for you.</p>
+{% endif %} 
+
+
+ -->
+
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Patient Appointments</title>
+    <!-- Bootstrap 5 CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom Background Style -->
+    <style>
+        body {
+            background-color: #e6f2ff; /* Light Blue */
+            margin-top: 80px;
+        }
+    </style>
+</head>
+<body class="py-5">  <!-- Removed bg-light, custom color is now applied -->
+
+    <div class="container">
+        <!-- <h2 class="mb-4 text-primary">Patient Appointment List</h2> -->
+         <div class="mb-2 p-0 border border-primary rounded bg-white shadow-sm text-center">
+            <h2 class="text-primary mt-2">Patient Appointment List</h2>
+        </div>
+
+
+        <div class="table-responsive">
+            {% if appointment%}
+            <table class="table table-bordered table-hover table-striped align-middle shadow-sm bg-white">
+                <thead class="table-primary">
+                    <tr>
+                        <th>Patient Name</th>
+                        <th>Email</th>
+                        <th>Mobile</th>
+                        <th>Gender</th>
+                        <th>DOB</th>
+                        <th>Address</th>
+                        <th>Diseases</th>
+                        <th>Apply Date</th>
+                        <th>Status</th>
+                        <th>Action</th>
+                        <th>View</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for data in appointment %}
+                    <tr>
+                        <td>{{ data.p_name }}</td>
+                        <td>{{ data.p_email }}</td>
+                        <td>{{ data.p_mobile }}</td>
+                        <td>{{ data.p_gender }}</td>
+                        <td>{{ data.dob }}</td>
+                        <td>{{ data.p_address }}</td>
+                        <td>{{ data.p_disease }}</td>
+                        <td>{{ data.todaydate }}</td>
+                        <td>
+                            {% if data.status == 'Pending' %}
+                                <span class="badge bg-primary text-dark">{{ data.status }}</span>
+                            {% elif data.status == 'Approved' %}
+                                <span class="badge bg-success ">{{ data.status }}</span>
+                            {% elif data.status == 'Rejected' %}
+                                <span class="badge bg-danger">{{ data.status }}</span>
+                            {% else %}
+                                <span class="badge bg-secondary">{{ data.status }}</span>
+                            {% endif %}
+                        </td>
+                        <td>
+                            {% if 'data.status=="pending"' %}
+                            <form action="{% url 'approve_appointment'%}" method="POST" style="display: inline;">
+                                {% csrf_token%}
+                                <input type="hidden" name="appointment_id" value="{{data.id}}">
+                                <button type="submit" class="btn-approve bg-success">Approve</button>
+                             </form>
+
+                            <form action="{% url 'cancel_appointment'%}" method="POST" style="display: inline;">
+                                {% csrf_token%}
+                                <input type="hidden" name="appointment_id" value="{{data.id}}">
+                                <button type="submit" class="btn-approve bg-danger">Cancle</button>
+                            </form>
+                            {% else %}
+                            <form action="{% url 'cancel_appointment'%}" method="POST" style="display: inline;">
+                                {% csrf_token%}
+                                <input type="hidden" name="appointment_id" value="{{data.id}}">
+                                <button type="submit" class="btn-approve">Cancle</button>
+                            </form>
+                            {% endif %}
+                        </td>
+                        <td>
+                            <form method="post" action="{% url 'viewdetails' %}">
+                                {% csrf_token %}
+                                <input type="hidden" value="{{data.id}}" name="pid">
+                            <input type="submit" value="View Details" name="btn" class="bg-light">
+                            </form>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            {% else %}
+            <p>no appointments found for you.</p>
+            {% endif %} 
+        </div>
+    </div>
+
+    <!-- Bootstrap JS (optional, for components like modals) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+{%endblock%}
